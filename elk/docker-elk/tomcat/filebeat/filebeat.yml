@@ -1,0 +1,19 @@
+filebeat.config.modules:
+  enabled: true
+  path: ${path.config}/modules.d/*.yml
+
+filebeat.modules:
+- module: nginx
+- module: system
+
+- module: system
+  syslog:
+    enabled: true
+    var.paths: ["/var/log/syslog*"]
+  auth:
+    enabled: true
+    var.paths: ["/var/log/auth.log*"]
+
+output.logstash:
+  hosts: ["logstash:5000"]
+
