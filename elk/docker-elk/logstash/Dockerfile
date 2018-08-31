@@ -2,4 +2,5 @@
 FROM docker.elastic.co/logstash/logstash:5.4.1
 
 # Add your logstash plugins setup here
-# Example: RUN logstash-plugin install logstash-filter-json
+# Example: 
+RUN logstash-plugin install logstash-filter-json logstash-codec-gzip_lines
